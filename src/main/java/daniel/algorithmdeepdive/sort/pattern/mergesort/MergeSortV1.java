@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.sort.pattern;
+package daniel.algorithmdeepdive.sort.pattern.mergesort;
 
 
 /// # 병합 정렬 V1 - 성능 최적화

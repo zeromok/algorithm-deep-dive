@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.sort.pattern;
+package daniel.algorithmdeepdive.sort.pattern.mergesort;
 
 import java.util.Arrays;
 
