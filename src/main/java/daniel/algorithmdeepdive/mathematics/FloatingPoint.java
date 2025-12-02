@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive;
+package daniel.algorithmdeepdive.mathematics;
 
 import java.math.BigDecimal;
 
