@@ -14,6 +14,7 @@ src/main/java/daniel/algorithmdeepdive/
 ├── mathematics/ # 수학 개념
 └──  pattern/ # 알고리즘 패턴/기법
       ├── bruteforce/ # 완전탐색
+      ├── dp/ # DP
       ├── greedy/ # 그리디
       ├── sort/ # 정렬
       ├── search/ # 탐색
