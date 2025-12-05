@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.search.binary;
+package daniel.algorithmdeepdive.pattern.search.binary;
 
 import java.util.Comparator;
 import java.util.List;

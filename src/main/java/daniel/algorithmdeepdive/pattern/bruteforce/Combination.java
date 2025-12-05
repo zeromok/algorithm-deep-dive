@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.bruteforce.pattern;
+package daniel.algorithmdeepdive.pattern.bruteforce;
 
 import java.util.ArrayList;
 import java.util.List;

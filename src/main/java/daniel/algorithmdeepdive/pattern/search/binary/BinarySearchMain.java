@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.search.binary;
+package daniel.algorithmdeepdive.pattern.search.binary;
 
 public class BinarySearchMain {
 	public static void main(String[] args) {

@@ -1,37 +1,32 @@
 package daniel.algorithmdeepdive.mathematics;
 
-/// # 자릿수 분리 패턴과 응용
+/// # 자릿수 분리 패턴
+/// ## 핵심 원리
+/// - 숫자를 자릿수별로 분리
+/// - 모듈로 연산(%)과 나눗셈(/) 활용
+///
+/// ## 학습 포인트
+/// - 자릿수 분리 기법
+/// - 진법 변환
+/// - 숫자 뒤집기
+///
+/// ## 실무 적용
+/// - 입력 검증: 숫자 형식 검증
+/// - 숫자 포맷팅: 천 단위 구분자 추가
+/// - 암호화 알고리즘: 숫자 변환 기법
 public class SeparationOfDigits {
-	public static void main(String[] args) {
-
-		int num = 1234;
-		separationOfDigits(num);
-		System.out.println("숫자 뒤집기: " + reverse(num));
-		System.out.println("2진수 변환: " + toBase(num, 2));
-		System.out.println("8진수 변환: " + toBase(num, 8));
-		System.out.println("16진수 변환: " + toBase(num, 16));
-		System.out.println("자릿수 합계: " + sumOfDigits(num));
-		System.out.println("Digital Root: " + digitalRoot(num));
-	}
-
-	/// 기본 구현: 각 자릿수 출력
-	private static void separationOfDigits(int num) {
-		if (num == 0) {
-			System.out.println("자릿수: 0");
-			return;
-		}
-
-		System.out.print("자릿수들: ");
+	/// 자릿수 합계
+	public static int sumOfDigits(int num) {
+		int sum = 0;
 		while (num > 0) {
-			System.out.print(num % 10);
-			if (num >= 10) System.out.print(", ");
+			sum += num % 10;
 			num /= 10;
 		}
-		System.out.println();
+		return sum;
 	}
 
-	/// 숫자뒤집기
-	private static int reverse(int num) {
+	/// 숫자 뒤집기
+	public static int reverse(int num) {
 		int result = 0;
 		while (num > 0) {
 			result = result * 10 + num % 10;
@@ -41,13 +36,12 @@ public class SeparationOfDigits {
 	}
 
 	/// 진법 변환
-	private static String toBase(int num, int base) {
+	public static String toBase(int num, int base) {
 		if (num == 0) return "0";
 
 		StringBuilder sb = new StringBuilder();
 		while (num > 0) {
 			int digit = num % base;
-			// 16진법 대응: 10~15 → A~F
 			if (digit < 10) {
 				sb.append(digit);
 			} else {
@@ -58,18 +52,8 @@ public class SeparationOfDigits {
 		return sb.reverse().toString();
 	}
 
-	/// 자릿수 합계
-	private static int sumOfDigits(int num) {
-		int sum = 0;
-		while (num > 0) {
-			sum += num % 10;
-			num /= 10;
-		}
-		return sum;
-	}
-
-	/// 자릿수 합계 (한자리까지)
-	private static int digitalRoot(int num) {
+	/// Digital Root (자릿수 합을 한 자리까지)
+	public static int digitalRoot(int num) {
 		while (num >= 10) {
 			num = sumOfDigits(num);
 		}

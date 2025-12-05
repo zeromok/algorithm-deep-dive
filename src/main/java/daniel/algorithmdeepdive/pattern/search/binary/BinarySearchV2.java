@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.search.binary;
+package daniel.algorithmdeepdive.pattern.search.binary;
 
 /// # BinarySearchV2 - 엣지 케이스 방어
 ///

@@ -1,36 +1,39 @@
 package daniel.algorithmdeepdive.mathematics;
 
-/// # 정수 연산 나눗셈
-/// ## 목표: `a / b` 를 정수 연산만으로 반올림
+/// # 정수 연산 나눗셈 패턴
+/// ## 핵심 원리
+/// - 정수 연산만으로 반올림, 올림, 내림 구현
+/// - 부동소수점 연산 없이 정확한 결과
+///
+/// ## 학습 포인트
+/// - 정수 연산을 통한 반올림 기법
+/// - 음수 처리 방법
+///
+/// ## 실무 적용
+/// - 통계 계산: 평균값 반올림
+/// - UI 표시 값 조정: 사용자에게 보여줄 값 포맷팅
+/// - 금액 계산: 소수점 처리
 public class RoundToIntegerOperation {
-	public static void main(String[] args) {
-
-		// case 1: 278 / 3 = 92.666... -> 93
-		int sum1 = 278, n1 = 3;
-		long case1 = (sum1 + n1 / 2) / n1;
-		System.out.println("case 1: " + case1);
-
-		// case 2: 24 / 10 = 2.4 -> 2
-		int sum2 = 24, n2 = 10;
-		long case2 = (sum2 + n2 / 2) / n2;
-		System.out.println("case 2: " + case2);
-
-		// case 3: 25 / 10 = 2.5 -> 3
-		int sum3 = 25, n3 = 10;
-		long case3 = (sum3 + n3 / 2) / n3;
-		System.out.println("case 3: " + case3);
-
-		// 음수 처리
-		long case4 = roundedDivide(-25, 10);
-		System.out.println("case 4: " + case4);
+	/// 반올림: (a + b/2) / b
+	public static long round(int a, int b) {
+		if (a >= 0) {
+			return (a + b / 2) / b;
+		} else {
+			return (a - b / 2) / b;
+		}
 	}
 
-
-	private static long roundedDivide(int sum, int n) {
-		if (sum >= 0) {
-			return (sum + n / 2) / n;
+	/// 올림: (a + b - 1) / b
+	public static long ceil(int a, int b) {
+		if (a >= 0) {
+			return (a + b - 1) / b;
 		} else {
-			return (sum - n / 2) / n;
+			return a / b;
 		}
+	}
+
+	/// 내림: a / b
+	public static long floor(int a, int b) {
+		return a / b;
 	}
 }

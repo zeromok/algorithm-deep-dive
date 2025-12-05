@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.greedy.pattern;
+package daniel.algorithmdeepdive.pattern.greedy;
 
 /// # 그리디 패턴 - 큰 단위 우선 사용
 /// ## 핵심 원리
