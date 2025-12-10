@@ -39,14 +39,17 @@ public class MergeSortV1 {
 	}
 
 	private static void merge(int[] arr, int left, int mid, int right) {
-		// 임시 배열에 복사 (값 복사-깊은 복사, 객체 복사-얕은 복사)
+		// 임시 배열에 복사 (왜? 병합 과정에서 원본 데이터를 덮어쓴다.)
+		// temp 에서 읽고 arr에 쓴다.
 		System.arraycopy(arr, left, temp, left, right - left + 1);
 
-		int i = left;
-		int j = mid + 1;
-		int k = left;
+		// i: 왼쪽 배열의 요소를 가리키는 포인터
+		// j: 오른쪽 배열의 요소를 가리키는 포인터
+		// k: 병합 결과가 쓰여질 위치 포인터
+		int i = left, j = mid + 1, k = left;
 
-		// 병합
+		// 병합: 이미 정렬된 두개의 배열을 병합
+		// 두 배열의 요소들을 비교하면서 arr 에 복사한다.
 		while (i <= mid && j <= right) {
 			if (temp[i] <= temp[j]) {
 				arr[k++] = temp[i++];
@@ -56,6 +59,7 @@ public class MergeSortV1 {
 		}
 
 		// 남은 원소 처리
+		// 왜 왼쪽 기준?: 오른쪽 배열(j~right)이 남았다는건 -> 이미 arr 배열 안 올바른 위치에 있다는 뜻
 		while (i <= mid) {
 			arr[k++] = temp[i++];
 		}
