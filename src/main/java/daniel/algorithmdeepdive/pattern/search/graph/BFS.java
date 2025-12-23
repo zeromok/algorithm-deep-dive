@@ -88,6 +88,8 @@ public class BFS {
 	}
 
 	/// 최단 거리 계산
+	/// @param start 기준 정점
+	/// @return 최단 거리 정보를 담고 있는 배열 반환
 	public int[] shortestDistances(int start) {
 		int[] distances = new int[vertices];
 		Arrays.fill(distances, -1);
