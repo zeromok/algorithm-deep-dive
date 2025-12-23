@@ -42,17 +42,23 @@ public class AdjacencyListGraph {
 		list.get(from).add(to);
 	}
 
-	// 간선 존재 확인: O(degree) - 인접행렬보다 느림
+	/// ### 간선 존재 확인: O(degree) - 인접행렬보다 느림
+	/// - 정점 1과 2 사이 간선이 존재하는지 확인한다.
+	/// @param from 정점 1
+	/// @param to 정점 2
+	/// @return 간선이 존재하면 {@code true} 존재하지 않으면 {@code false}
 	public boolean hasEdge(int from, int to) {
 		return list.get(from).contains(to);
 	}
 
-	// 특정 정점의 인접 정점들 반환
+	/// ### 특정 정점의 인접 정점 반환
+	/// @param vertex 확인할 정점
+	/// @return 인접한 정점 정보를 담고 있는 {@code Integer} 객체들의 {@link List}
 	public List<Integer> getNeighbors(int vertex) {
 		return list.get(vertex);
 	}
 
-	// 인접 정점 순회: O(degree) - 핵심 장점
+	/// ### 인접 정점 순회: O(degree) - 핵심 장점
 	public void printNeighbors(int vertex) {
 		System.out.print(vertex + "의 인접 정점: ");
 		for (int e : list.get(vertex)) {

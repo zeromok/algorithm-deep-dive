@@ -46,12 +46,16 @@ public class AdjacencyMatrixGraph {
 		matrix[to][from] = weight;
 	}
 
-	// 간선 존재 확인: O(1) - 핵심 장점
+	/// ### 간선 존재 확인: O(1) - 핵심 장점
+	/// - 정점 1과 2 사이 간선이 존재하는지 확인한다.
+	/// @param from 정점 1
+	/// @param to 정점 2
+	/// @return 간선이 존재하면 {@code true} 존재하지 않으면 {@code false}
 	public boolean hasEdge(int from, int to) {
 		return matrix[from][to] != 0;
 	}
 
-	// 특정 정점의 모든 인접 정점 출력
+	// ==== 특정 정점의 모든 인접 정점 출력 ====
 	public void printNeighbors(int vertex) {
 		System.out.print(vertex + "의 인접 정점: ");
 		for (int i = 0; i < vertices; i++) {
