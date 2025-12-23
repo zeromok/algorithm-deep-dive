@@ -11,6 +11,10 @@ import java.util.Stack;
 /// - Stack 자료구조 사용 (재귀 = 콜스택)
 /// - 경로 추적, 사이클 탐지, 위상정렬에 유용
 /// - 시간 복잡도: O(V + E)
+/// ## 장점
+/// - 재귀로 인해 코드가 짧음
+/// - 메모리 적음 (큐 안씀)
+/// - 단순 연결성 확인에는 충분
 public class DFS {
 	private List<List<Integer>> graph;
 	private boolean[] visited;

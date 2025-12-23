@@ -4,9 +4,10 @@ import java.util.List;
 
 /// 배운점
 /// - DFS / BFS 의 탐색 순서는 다르다.
-/// - BFS 는 최단 거리를 보장한다.
+/// - BFS 는 최단 거리를 보장한다. (가중치 없을 경우)
 /// - DFS 는 최단 거리를 보장하지 못한다.
 /// - DFS / BFS 모두 모든 정점을 방문할 수 있다.
+/// - 가중치 그래프의 최단 경로 알고리즘 -> Dijkstra
 public class GraphSearchMain {
 	public static void main(String[] args) {
 		basic();

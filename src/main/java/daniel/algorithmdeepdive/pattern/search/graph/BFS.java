@@ -13,6 +13,9 @@ import java.util.Queue;
 /// - Queue 자료구조 사용
 /// - 최단 경로 찾기에 최적
 /// - 시간 복잡도: O(V + E)
+/// ## 장점
+/// - 최단 거리 보장 (가중치 없을 때)
+/// - 레벨별 처리 가능
 public class BFS {
 	List<List<Integer>> graph;
 	private boolean[] visited;
