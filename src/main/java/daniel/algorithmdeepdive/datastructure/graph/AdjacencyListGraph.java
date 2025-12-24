@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.dataStructure.graph;
+package daniel.algorithmdeepdive.datastructure.graph;
 
 import java.util.ArrayList;
 import java.util.List;

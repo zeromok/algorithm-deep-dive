@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.dataStructure.heap;
+package daniel.algorithmdeepdive.datastructure.heap;
 
 /// # 사용자 정의 힙V0 - 기본 구현
 /// ## 핵심 원리

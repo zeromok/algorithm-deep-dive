@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.dataStructure.graph;
+package daniel.algorithmdeepdive.datastructure.graph;
 
 public class WeightedMain {
 	public static void main(String[] args) {

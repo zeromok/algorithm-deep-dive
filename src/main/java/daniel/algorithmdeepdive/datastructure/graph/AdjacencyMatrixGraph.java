@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.dataStructure.graph;
+package daniel.algorithmdeepdive.datastructure.graph;
 
 /// # 인접행렬 그래프 구현
 /// ## 본질

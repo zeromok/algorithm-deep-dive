@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.dataStructure.heap;
+package daniel.algorithmdeepdive.datastructure.heap;
 
 import java.util.PriorityQueue;
 
