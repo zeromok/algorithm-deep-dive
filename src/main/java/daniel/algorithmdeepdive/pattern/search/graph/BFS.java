@@ -39,25 +39,34 @@ public class BFS {
 
 	/// 기본 구현
 	public void bfs(int start) {
-		System.out.println("\n=== BFS (시작: " + start + ") ===");
 		Arrays.fill(visited, false);
+		System.out.println("\n=== BFS (시작: " + start + ") ===");
 
+		// 1. 방문할 정점들을 담아둘 큐 생성
 		Queue<Integer> queue = new LinkedList<>();
+
+		// 2. 시작 정점을 큐에 넣고 즉시 방문 처리 (BFS 핵심)
 		queue.offer(start);
 		visited[start] = true;
 
+		// 3. 큐에 정점이 없을 때까지 반복
 		while (!queue.isEmpty()) {
-			int v = queue.poll();
+			// 3-1. 가장 먼저 넣은 정점을 꺼냄 (FIFO)
+			Integer v = queue.poll();
 			System.out.print(v + " ");
 
-			for (int neighbor : graph.get(v)) {
+			// 3-2. 현재 정점의 인접 정점 리스트 가져옴
+			List<Integer> neighbors = graph.get(v);
+			// 3-3. 인접 정점들을 순회하며 처리
+			for (Integer neighbor : neighbors) {
+				// 3-4. 아직 방문하지 않은 인접 정점만 큐에 넣음
 				if (!visited[neighbor]) {
-					visited[neighbor] = true;
 					queue.offer(neighbor);
+					// 3-5. 큐에 넣는 즉시 방문 처리
+					visited[neighbor] = true;
 				}
 			}
 		}
-		System.out.println();
 	}
 
 	/// 거리 계산
@@ -91,6 +100,7 @@ public class BFS {
 	}
 
 	/// 최단 거리 계산
+	///
 	/// @param start 기준 정점
 	/// @return 최단 거리 정보를 담고 있는 배열 반환
 	public int[] shortestDistances(int start) {

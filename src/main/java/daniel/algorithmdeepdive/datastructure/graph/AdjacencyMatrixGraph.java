@@ -55,7 +55,9 @@ public class AdjacencyMatrixGraph {
 		return matrix[from][to] != 0;
 	}
 
-	// ==== 특정 정점의 모든 인접 정점 출력 ====
+	/// 인접 정점 확인: O(V)
+	/// - 매개변수로 들어온 정점의 인접 노드를 확인한다.
+	/// @param vertex 확인할 정점
 	public void printNeighbors(int vertex) {
 		System.out.print(vertex + "의 인접 정점: ");
 		for (int i = 0; i < vertices; i++) {

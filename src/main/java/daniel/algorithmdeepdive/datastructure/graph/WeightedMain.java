@@ -2,9 +2,9 @@ package daniel.algorithmdeepdive.datastructure.graph;
 
 public class WeightedMain {
 	public static void main(String[] args) {
-		weightMatters();
-		cityNetwork();
-		directedVsUndirected();
+		// weightMatters();
+		// cityNetwork();
+		// directedVsUndirected();
 		minimumCostPath();
 	}
 
@@ -15,7 +15,7 @@ public class WeightedMain {
 	/// - 일반 그래프(BFS)는 경로2를 선택 (간선 개수만 봄)
 	/// - 가중치가 없으면 최단거리를 못 찾음
 	static void weightMatters() {
-		System.out.println("==== test1 ===");
+		System.out.println("==== 왜 가중치가 필요할까? ====");
 		// 시나리오: 서울 -> 부산 가는 방법
 		// 경로 1: 서울 -> 대전 -> 부산 (거리: 100Km + 150Km = 250Km)
 		// 경로 1: 서울 -> 광주 -> 부산 (거리: 80Km + 200Km = 280Km)
@@ -33,7 +33,7 @@ public class WeightedMain {
 	/// 테스트 2: 실전 네트워크 예제
 	/// 목적: 현실 문제를 그래프로 모델링
 	static void cityNetwork() {
-		System.out.println("==== test2 ===");
+		System.out.println("==== 현실 문제를 그래프로 모델링 ====");
 		String[] cities = {"서울", "대전", "대구", "부산", "광주", "전주"};
 		WeightedGraph network = new WeightedGraph(cities.length);
 
@@ -74,7 +74,7 @@ public class WeightedMain {
 	/// 테스트 3: 방향 그래프 vs 무방향 그래프
 	/// 목적: 방향성에 따른 차이 이해
 	static void directedVsUndirected() {
-		System.out.println("==== test3 ===");
+		System.out.println("==== 방향성에 따른 차이 ====");
 		// 우방향: 도로 (양방향 통행 가능)
 		// 0 -> 1 / 1 -> 0 같은 간선 (양방향)
 		WeightedGraph undirected = new WeightedGraph(4);
@@ -94,7 +94,7 @@ public class WeightedMain {
 	/// 테스트 4: 최소 비용 경로 찾기 (간단)
 	/// 목적: 가중치 그래프의 실전 활용 - 모든 경로 탐색
 	static void minimumCostPath() {
-		System.out.println("==== test4 ===");
+		System.out.println("==== 모든 경로 탐색 ====");
 		WeightedGraph graph = new WeightedGraph(5);
 		graph.addEdge(0, 1, 10);
 		graph.addEdge(1, 3, 20);

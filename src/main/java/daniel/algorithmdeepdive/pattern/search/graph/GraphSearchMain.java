@@ -11,9 +11,9 @@ import java.util.List;
 public class GraphSearchMain {
 	public static void main(String[] args) {
 		basic();
-		shortPath();
-		pathFinding();
-		disconnectedGraph();
+		// shortPath();
+		// pathFinding();
+		// disconnectedGraph();
 	}
 
 	/// 테스트 1: 기본 탐색 순서 비교
@@ -37,6 +37,7 @@ public class GraphSearchMain {
 		System.out.println("  3   6");
 
 		dfs.dfsRecursive(1); // 1 2 3 5 6
+		dfs.dfsIterative(1);
 		bfs.bfs(1); // 1 2 5 3 6
 	}
 
