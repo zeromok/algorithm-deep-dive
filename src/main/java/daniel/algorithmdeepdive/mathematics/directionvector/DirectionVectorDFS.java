@@ -14,24 +14,25 @@ public class DirectionVectorDFS {
 		System.out.println("==== DFS (Stack) ====");
 		int[][] grid = new int[7][7];
 		boolean[][] visited = new boolean[7][7];
-		Stack<DirectionVectorBasic.Point> stack = new Stack<>();
+		Stack<Point> stack = new Stack<>();
 
 		int startX = 3, startY = 3;
 
-		stack.push(new DirectionVectorBasic.Point(startX, startY, 0));
-		visited[startX][startY] = true;
-		grid[startX][startY] = 0;
+		stack.push(new Point(startX, startY, 0));
 
 		while (!stack.isEmpty()) {
-			DirectionVectorBasic.Point curr = stack.pop();
+			Point curr = stack.pop();
 
-			for (int i = 0; i < 4; i++) {
-				int nx = curr.x + DirectionVectorBasic.DX4[i];
+			if (visited[curr.x][curr.y]) continue;
+
+			visited[curr.x][curr.y] = true;
+			grid[curr.x][curr.y] = curr.level;
+
+			for (int i = 3; i >= 0; i--) {
+				int nx = curr.x + DX4[i];
 				int ny = curr.y + DY4[i];
 
 				if (isValid(nx, ny, 7, 7) && !visited[nx][ny]) {
-					visited[nx][ny] = true;
-					grid[nx][ny] = curr.level + 1;
 					stack.push(new DirectionVectorBasic.Point(nx, ny, curr.level + 1));
 				}
 			}
