@@ -1,28 +1,29 @@
 package daniel.algorithmdeepdive.pattern.dp;
 
-/// # DP 패턴 V2 - 반복문 (Bottom-up DP)
-/// ## 핵심 원리
+/// ## DP 패턴 V2 - 반복문 (Bottom-up DP)
+/// ### 언제 쓰는가?
+/// - "대부분의 DP 문제" → Bottom-up DP (V2)
+///
+/// ### 핵심 원리
 /// - 작은 문제부터 큰 문제로 순차적 해결
 /// - 재귀 호출 스택 오버헤드 없음
 /// - Bottom-up 방식: 기저 조건부터 시작
 ///
-/// ## 시간 복잡도: O(N)
-/// ## 공간 복잡도: O(N) - DP 테이블
+/// ### 시간 복잡도: O(N)
+/// ### 공간 복잡도: O(N) - DP 테이블
 ///
-/// ## V1 대비 개선
+/// ### V1 대비 개선
 /// - 재귀 스택 오버헤드 제거
 /// - 반복문으로 명시적 순서 제어
 /// - 스택 오버플로우 위험 없음
 ///
-/// ## 학습 포인트
+/// ### 학습 포인트
 /// - Bottom-up DP의 구조
 /// - 반복문으로 DP 테이블 채우는 순서
 /// - Top-down vs Bottom-up 비교
 ///
-/// ## 실무 적용
-/// - 대부분의 DP 문제에서 선호되는 방식
-/// - 명확한 계산 순서가 필요한 경우
-/// - 스택 오버플로우를 피해야 하는 경우
+/// ### 실험
+/// @see daniel.algorithmdeepdive.pattern.dp.practice.DPPractice
 public class BasicDPV2 {
 
 	/// 반복문 방식 (Bottom-up)

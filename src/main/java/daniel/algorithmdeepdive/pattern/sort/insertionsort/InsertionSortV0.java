@@ -1,6 +1,8 @@
 package daniel.algorithmdeepdive.pattern.sort.insertionsort;
 
 /// # 삽입정렬 V0 - 기본 구현
+/// ## 언제 쓰는가?
+/// - "작은 배열, 거의 정렬된 배열" → InsertionSort
 ///
 /// ## 알고리즘 원리
 /// 배열을 "정렬된 영역"과 "미정렬 영역"으로 나누고, 미정렬 영역의 첫 번째 원소를 정렬된 영역의 올바른 위치에 삽입하는 과정을 반복

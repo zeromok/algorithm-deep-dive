@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Stack;
 
 /// # DFS(Depth-First Search) 구현 - 깊이 우선 탐색
+/// ## 언제 쓰는가?
+/// - "경로 추적, 사이클 탐지" → DFS
+///
 /// ## 핵심 원리
 /// - 한 경로를 끝까지 탐색 후 백트래킹
 /// - Stack 자료구조 사용 (재귀 = 콜스택)
@@ -15,6 +18,9 @@ import java.util.Stack;
 /// - 재귀로 인해 코드가 짧음
 /// - 메모리 적음 (큐 안씀)
 /// - 단순 연결성 확인에는 충분
+///
+/// ## 실험
+/// @see daniel.algorithmdeepdive.pattern.search.graph.practice.DFSPractice
 public class DFS {
 	private List<List<Integer>> graph;
 	private boolean[] visited;

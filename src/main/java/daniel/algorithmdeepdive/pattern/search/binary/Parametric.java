@@ -2,26 +2,18 @@ package daniel.algorithmdeepdive.pattern.search.binary;
 
 import java.util.function.Predicate;
 
-/**
- * 파라메트릭 서치 (Parametric Search)
- *
- * <h3>핵심 개념</h3>
- * - 최적화 문제를 결정 문제로 변환하여 이분탐색 적용
- * - "X가 가능한가?"를 판단하는 validator 함수가 핵심
- *
- * <h3>사용 상황</h3>
- * - "조건을 만족하는 최댓값/최솟값" 구하기
- * - 답의 범위가 넓어서 완전탐색 불가능
- * - isValid(x) 함수를 O(N) 이하로 구현 가능
- *
- * <h3>처음 배운 문제</h3>
- * - 백준 1654 (랜선 자르기):
- *   <a href="https://github.com/zeromok/ps-baekjoon-1654-parametric-search">학습 과정</a>
- * - 블로그: <a href="https://b-mokk.tistory.com/84">파라메트릭 서치란?</a>
- *
- * <h3>실험</h3>
- * @see daniel.algorithmdeepdive.pattern.search.binary.practice.ParametricPractice
- */
+/// ## 파라메트릭 서치 (Parametric Search)
+/// ### 언제 쓰는가?
+/// - "조건을 만족하는 최댓값/최솟값" 구하기 → Parametric
+/// ### 핵심 개념
+/// - 최적화 문제를 결정 문제로 변환하여 이분탐색 적용
+/// - "X가 가능한가?"를 판단하는 validator 함수가 핵심
+/// ### 처음 배운 문제
+/// - 백준 1654 (랜선 자르기):
+///   <a href="https://github.com/zeromok/ps-baekjoon-1654-parametric-search">학습 과정</a>
+/// - 블로그: <a href="https://b-mokk.tistory.com/84">파라메트릭 서치란?</a>
+/// ### 실험
+/// @see daniel.algorithmdeepdive.pattern.search.binary.practice.ParametricPractice
 public class Parametric {
 
 	/**

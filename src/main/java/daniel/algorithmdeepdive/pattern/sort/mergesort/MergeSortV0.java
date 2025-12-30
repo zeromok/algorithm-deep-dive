@@ -2,6 +2,9 @@ package daniel.algorithmdeepdive.pattern.sort.mergesort;
 
 
 /// # 병합 정렬 V0 - 기본 구현
+/// ## 언제 쓰는가?
+/// - "안정 정렬이 필요한 경우" → MergeSort
+///
 /// 목적: 병합 정렬의 핵심 원리를 단계별로 이해
 ///
 /// 핵심 개념:
@@ -17,20 +20,6 @@ package daniel.algorithmdeepdive.pattern.sort.mergesort;
 /// 시간 복잡도: O(N log N) - 최선/평균/최악 모두 통일
 ///
 /// 공간 복잡도: O(N) - 임시 배열 필요
-///
-/// 장점:
-/// - 안정 정렬 (같은 값의 순서 유지)
-/// - 예측 가능한 성능 (입력 상태 무관)
-/// - 대용량 데이터에 적합
-///
-/// 단점:
-/// - 추가 메모리 필요 (임시 배열)
-/// - 작은 데이터에는 오버헤드
-///
-/// 실무 응용:
-/// - 외부 정렬 (메모리에 안 들어오는 데이터)
-/// - 안정성이 중료한 정렬 (주문 내역, 로그 등)
-/// - Java 의 Collections.sort() 내부 구현 (TimeSort 의 기반)
 public class MergeSortV0 {
 
 	/// 진입점

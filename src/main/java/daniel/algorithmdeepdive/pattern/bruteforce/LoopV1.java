@@ -2,6 +2,9 @@ package daniel.algorithmdeepdive.pattern.bruteforce;
 
 
 /// # 완전탐색 패턴 V1 - 범용 N중 루프
+/// ## 언제 쓰는가?
+/// - "범용 N중 루프 (가변 개수)" → LoopV1
+///
 /// ## V0 대비 개선
 /// - 3중 루프 → N중 루프로 범용화
 /// - 재귀를 통한 동적 중첩 깊이

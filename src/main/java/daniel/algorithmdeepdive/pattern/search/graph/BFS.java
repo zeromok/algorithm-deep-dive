@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Queue;
 
 /// # BFS(Breadth-First Search) - 너비 우선 탐색
+/// ## 언제 쓰는가?
+/// - "최단 거리/경로 찾기" → BFS
+///
 /// ## 핵심 원리
 /// - 레벨 순서대로 탐색 (거리가 가까운 것부터)
 /// - Queue 자료구조 사용
@@ -16,6 +19,9 @@ import java.util.Queue;
 /// ## 장점
 /// - 최단 거리 보장 (가중치 없을 때)
 /// - 레벨별 처리 가능
+///
+/// ## 실험
+/// @see daniel.algorithmdeepdive.pattern.search.graph.practice.BFSPractice
 public class BFS {
 	List<List<Integer>> graph;
 	private boolean[] visited;
