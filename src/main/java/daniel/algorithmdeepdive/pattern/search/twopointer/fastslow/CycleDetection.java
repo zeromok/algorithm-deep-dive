@@ -2,6 +2,7 @@ package daniel.algorithmdeepdive.pattern.search.twopointer.fastslow;
 
 /// ## Fast & Slow 포인터 - 사이클 감지
 /// ### 핵심 원리 (Floyd's Algorithm)
+/// - 연결 리스트나 배열에서 두 포인터의 이동 속도를 다르게 설정하여 특정 상태를 찾아내는 기법
 /// - slow: 1칸씩 이동
 /// - fast: 2칸씩 이동
 /// - 사이클 있으면 반드시 만남
@@ -11,6 +12,10 @@ package daniel.algorithmdeepdive.pattern.search.twopointer.fastslow;
 /// - 사이클 내에서 fast 가 slow 를 따라잡는 속도: 1칸/step
 /// - 거리가 N 이면 N step 후 만남
 /// - 사이클 길이와 무관하게 선형 시간
+/// ### 어떤 경우에 사용하는가?
+/// - 연결 리스트의 순환 탐지
+/// - 연결 리스트의 중간 지점 찾기
+/// - 순환의 시작점 찾기
 public class CycleDetection {
 
 	/// 링크드리스트 노드
