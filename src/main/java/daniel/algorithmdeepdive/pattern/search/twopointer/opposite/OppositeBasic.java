@@ -16,13 +16,11 @@ package daniel.algorithmdeepdive.pattern.search.twopointer.opposite;
 /// - 이 단조성이 있어야 "되돌아가지 않는다" 성립
 public class OppositeBasic {
 
-	/// 두 수의 합이 `target`인지 확인
-	/// @param arr 정렬된 배열
-	/// @param target 목표 합
-	/// @return 존재 여부
+	/// 두 수의 합
 	public static boolean twoSum(int[] arr, int target) {
 		int left = 0;
 		int right = arr.length - 1;
+
 		while (left < right) {
 			int sum = arr[left] + arr[right];
 
@@ -37,48 +35,64 @@ public class OppositeBasic {
 		return false;
 	}
 
-	/// 두 수의 인덱스 반환
-	/// @param arr 정렬된 배열
-	/// @param target 목표 합
-	/// @return [left, right] 인덱스 쌍, 없으면 null
-	public static int[] twoSumIndices(int[] arr, int target) {
+	/// 서로 다른 세 수의 합
+	public static int threeSum(int[] arr) {
+		int count = 0;
+
+		for (int i = 0; i < arr.length - 1; i++) {
+
+			// 중복 제거
+			if (i > 0 && arr[i] == arr[i - 1]) {
+				continue;
+			}
+
+			int left = 0;
+			int right = arr.length - 1;
+			int target = -arr[i];
+
+			while (left < right) {
+				int sum = arr[left] + arr[right];
+
+				if (sum == target) {
+					count++;
+
+					// 중복 건너 뛰기
+					while (left < right && arr[left] == arr[left + 1])
+						left++;
+					while (left < right && arr[right] == arr[right - 1])
+						right--;
+
+					left++;
+					right++;
+				} else if (sum < target) {
+					left++;
+				} else {
+					right--;
+				}
+			}
+		}
+		return count;
+	}
+
+	/// 홀짝 분리
+	public static int[] separateOddEven(int[] arr) {
 		int left = 0;
 		int right = arr.length - 1;
 
 		while (left < right) {
-			int sum = arr[left] + arr[right];
-
-			if (sum == target) {
-				return new int[]{left, right};
-			} else if (sum < target) {
+			if (arr[left] % 2 == 1) {
 				left++;
+			} else if (arr[right] % 2 == 0) {
+				right--;
 			} else {
+				// left가 짝수, right가 홀수 → 교환
+				int temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+				left++;
 				right--;
 			}
 		}
-		return null;
-	}
-
-	/// 두 수의 차이가 `target`인지 확인
-	/// @param arr 정렬된 배열
-	/// @param target 목표 차이
-	/// @return 존재 여부
-	public static boolean twoDifference(int[] arr, int target) {
-		int left = 0;
-		int right = 1;
-
-		while (right < arr.length) {
-			int diff = arr[right] - arr[left];
-
-			if (diff == target) {
-				return true;
-			} else if (diff < target) {
-				right++; // 차이를 더 크게
-			} else {
-				left++; // 차이를 더 작게
-				if (left == right) right++; // 같아지면 right 이동
-			}
-		}
-		return false;
+		return arr;
 	}
 }
