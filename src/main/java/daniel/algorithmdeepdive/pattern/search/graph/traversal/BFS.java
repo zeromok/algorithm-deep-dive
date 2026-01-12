@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.search.graph;
+package daniel.algorithmdeepdive.pattern.search.graph.traversal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import daniel.algorithmdeepdive.pattern.search.graph.traversal.practice.BFSPractice;
 
 /// # BFS(Breadth-First Search) - 너비 우선 탐색
 /// ## 언제 쓰는가?
@@ -21,7 +23,7 @@ import java.util.Queue;
 /// - 레벨별 처리 가능
 ///
 /// ## 실험
-/// @see daniel.algorithmdeepdive.pattern.search.graph.practice.BFSPractice
+/// @see BFSPractice
 public class BFS {
 	List<List<Integer>> graph;
 	private boolean[] visited;

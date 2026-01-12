@@ -1,9 +1,11 @@
-package daniel.algorithmdeepdive.pattern.search.graph;
+package daniel.algorithmdeepdive.pattern.search.graph.traversal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+
+import daniel.algorithmdeepdive.pattern.search.graph.traversal.practice.DFSPractice;
 
 /// # DFS(Depth-First Search) 구현 - 깊이 우선 탐색
 /// ## 언제 쓰는가?
@@ -20,7 +22,7 @@ import java.util.Stack;
 /// - 단순 연결성 확인에는 충분
 ///
 /// ## 실험
-/// @see daniel.algorithmdeepdive.pattern.search.graph.practice.DFSPractice
+/// @see DFSPractice
 public class DFS {
 	private List<List<Integer>> graph;
 	private boolean[] visited;

@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.search.graph;
+package daniel.algorithmdeepdive.pattern.search.graph.traversal;
 
 import java.util.List;
 
