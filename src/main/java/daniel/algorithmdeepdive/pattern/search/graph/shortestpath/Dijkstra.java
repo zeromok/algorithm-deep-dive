@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /// ## 다익스트라 알고리즘 (Dijkstra's Algorithm)
+/// 하나의 시작점으로부터 다른 모든 정점까지의 최단 거리를 구하는 알고리즘
 /// ### 전제 조건
 /// - 양수 가중치만 가능 (음수 가중치 불가)
 /// - 단일 출발점 최단 경로

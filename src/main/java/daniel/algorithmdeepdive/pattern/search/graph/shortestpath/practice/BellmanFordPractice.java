@@ -1,6 +1,7 @@
 package daniel.algorithmdeepdive.pattern.search.graph.shortestpath.practice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /// Bellman-Ford 알고리즘 실행 흐름 관찰
@@ -8,58 +9,92 @@ import java.util.List;
 /// - 음수 사이클 검사 과정
 public class BellmanFordPractice {
 
-	static class Edge {
-		int from, to, weight;
+	static class Node {
+		int id;
+		int cost;
 
-		public Edge(int from, int to, int weight) {
-			this.from = from;
-			this.to = to;
-			this.weight = weight;
+		public Node(int id, int cost) {
+			this.id = id;
+			this.cost = cost;
 		}
 	}
 
 	public static void main(String[] args) {
-
+		int[] bellmanFord = bellmanFord(createNegativeCycleGraph(), 1);
+		System.out.println(Arrays.toString(bellmanFord));
 	}
 
-	/// 정상 케이스: 양수 가중치만
-	static void testNormalCase() {
-		int n = 5;
-		List<Edge> edges = new ArrayList<>();
+	/// 예제 그래프 생성
+	static List<List<Node>> createGraph() {
+		List<List<Node>> graph = new ArrayList<>();
+		for (int i = 0; i < 7; i++) {
+			graph.add(new ArrayList<>());
+		}
 
-		edges.add(new Edge(0, 1, 4));
-		edges.add(new Edge(0, 2, 3));
-		edges.add(new Edge(1, 3, 5));
-		edges.add(new Edge(2, 1, 2));
-		edges.add(new Edge(2, 3, 6));
-		edges.add(new Edge(3, 4, 2));
+		graph.get(1).add(new Node(2, 3));
+		graph.get(1).add(new Node(3, 2));
+		graph.get(1).add(new Node(4, 5));
+		graph.get(2).add(new Node(3, 2));
+		graph.get(2).add(new Node(5, 8));
+		graph.get(3).add(new Node(4, 2));
+		graph.get(4).add(new Node(5, 6));
+		graph.get(5).add(new Node(6, 11));
 
-		// TODO: trace 실행
+		return graph;
 	}
 
-	/// 음수 가중치 포함 케이스
-	static void testNegativeWeight() {
-		int n = 4;
-		List<Edge> edges = new ArrayList<>();
+	static List<List<Node>> createNegativeCycleGraph() {
+		List<List<Node>> graph = new ArrayList<>();
+		for (int i = 0; i < 7; i++) {
+			graph.add(new ArrayList<>());
+		}
 
-		edges.add(new Edge(0, 1, 5));
-		edges.add(new Edge(0, 2, 3));
-		edges.add(new Edge(1, 2, -2));  // 음수!
-		edges.add(new Edge(2, 3, 4));
-		edges.add(new Edge(1, 3, 6));
+		// 1번(시작)에서 2번으로 진입
+		graph.get(1).add(new Node(2, 5));
 
-		// TODO: trace 실행
+		// --- 음수 사이클 구간 ---
+		graph.get(2).add(new Node(3, 2));   // 2 -> 3 (비용 2)
+		graph.get(3).add(new Node(4, 1));   // 3 -> 4 (비용 1)
+		graph.get(4).add(new Node(2, -5));  // 4 -> 2 (비용 -5) !! 여기서 사이클 합이 2 + 1 + (-5) = -2가 됨
+		// -----------------------
+
+		graph.get(4).add(new Node(5, 10));  // 사이클에서 밖으로 나가는 길
+		graph.get(5).add(new Node(6, 3));
+
+		return graph;
 	}
 
-	/// 음수 사이클 케이스
-	static void testNegativeCycle() {
-		int n = 3;
-		List<Edge> edges = new ArrayList<>();
+	public static int[] bellmanFord(List<List<Node>> graph, int start) {
+		int v = graph.size();
+		int[] minDist = new int[v];
+		Arrays.fill(minDist, Integer.MAX_VALUE);
+		minDist[start] = 0;
 
-		edges.add(new Edge(0, 1, 1));
-		edges.add(new Edge(1, 2, -3));
-		edges.add(new Edge(2, 1, 1));  // 사이클: 1→2→1 = -2
+		for (int i = 1; i < v; i++) {
+			for (int u = 1; u < v; u++) {
+				for (Node node : graph.get(u)) {
+					if (minDist[u] == Integer.MAX_VALUE) continue;
 
-		// TODO: trace 실행
+					if (minDist[u] + node.cost < minDist[node.id]) {
+						minDist[node.id] = minDist[u] + node.cost;
+					}
+				}
+			}
+		}
+
+		// 2. 음수 사이클 체크 (v번째 반복에서도 값이 변한다면 사이클 존재)
+		return negativeCycleChk(graph, v, minDist) ? null : minDist;
+	}
+
+	private static boolean negativeCycleChk(List<List<Node>> graph, int v, int[] minDist) {
+		for (int u = 1; u < v; u++) {
+			for (Node neighbor : graph.get(u)) {
+				if (minDist[u] != Integer.MAX_VALUE && minDist[u] + neighbor.cost < minDist[neighbor.id]) {
+					System.out.println("그래프에 음수 사이클이 존재합니다.");
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
