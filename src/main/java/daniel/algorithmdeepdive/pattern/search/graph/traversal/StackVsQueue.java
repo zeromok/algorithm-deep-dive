@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
-/// 같은 그래프, 다른 자료구조 -> 다른 순서
+/// ## Stack vs Queue 비교
+/// ### 핵심 원리
+/// - 같은 그래프, 다른 자료구조 -> 다른 순서
+/// - Stack (LIFO) → DFS
+/// - Queue (FIFO) → BFS
 public class StackVsQueue {
 
 	public static void main(String[] args) {
@@ -22,8 +26,9 @@ public class StackVsQueue {
 		boolean[] visited = new boolean[7];
 		Queue<Integer> queue = new LinkedList<>();
 
-		queue.offer(1); // 시작 정점: 1
+		queue.offer(1);
 		visited[1] = true;
+
 		while (!queue.isEmpty()) {
 			int v = queue.poll();
 			System.out.print(v + " ");
@@ -34,8 +39,8 @@ public class StackVsQueue {
 					visited[next] = true;
 				}
 			}
-
 		}
+		System.out.println();
 	}
 
 	private static void dfsWithStack() {
@@ -43,20 +48,23 @@ public class StackVsQueue {
 		boolean[] visited = new boolean[7];
 		Stack<Integer> stack = new Stack<>();
 
-		stack.push(1); // 시작 정점: 1
+		stack.push(1);
+
 		while (!stack.isEmpty()) {
 			int v = stack.pop();
 			if (visited[v]) continue;
+
 			visited[v] = true;
 			System.out.print(v + " ");
 
 			List<Integer> next = graph.get(v);
-			for (int i = 0; i < next.size(); i++) {
+			for (int i = next.size() - 1; i >= 0; i--) {
 				if (!visited[next.get(i)]) {
 					stack.push(next.get(i));
 				}
 			}
 		}
+		System.out.println();
 	}
 
 	private static List<List<Integer>> buildGraph() {

@@ -1,18 +1,17 @@
-package daniel.algorithmdeepdive.pattern.search.graph.traversal.practice;
+package daniel.algorithmdeepdive.pattern.search.graph.traversal.bfs.practice;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/// BFS 실행 흐름 관찰
+/// ## BFS 실행 흐름 관찰
+/// ### 목표
 /// - Queue에 넣는 순서와 꺼내는 순서
 /// - 레벨별 탐색 과정
+/// - "최단 거리" 보장 과정
 public class BFSPractice {
 
 	public static void main(String[] args) {
-		// 예제 그래프 생성
 		List<List<Integer>> graph = createGraph();
-
-		// TODO: BFS 실행 흐름 trace
 	}
 
 	/// 예제 그래프 생성
@@ -40,11 +39,11 @@ public class BFSPractice {
 		return graph;
 	}
 
-	/// BFS 실행 흐름을 단계별로 출력
-	/// - 각 레벨별로 방문하는 정점
-	/// - Queue 상태 변화
-	/// - "최단 거리" 보장 과정
-	static void traceBFS(List<List<Integer>> graph, int start) {
-		// TODO: 구현
-	}
+	/// 스택
+
+	/// 재귀
+
+	/// 모든 그래프 탐색
+
+	/// 경로 추적
 }

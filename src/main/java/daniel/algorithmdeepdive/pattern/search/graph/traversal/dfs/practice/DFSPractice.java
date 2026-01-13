@@ -1,18 +1,18 @@
-package daniel.algorithmdeepdive.pattern.search.graph.traversal.practice;
+package daniel.algorithmdeepdive.pattern.search.graph.traversal.dfs.practice;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/// DFS 실행 흐름 관찰
+/// ## DFS 실행 흐름 관찰
+/// ### 목표
 /// - 재귀 호출 깊이와 백트래킹 과정
 /// - 한 경로를 끝까지 탐색하는 과정
+/// - Stack vs 재귀 비교
 public class DFSPractice {
 
 	public static void main(String[] args) {
-		// 예제 그래프 생성
 		List<List<Integer>> graph = createGraph();
-
-		// TODO: DFS 실행 흐름 trace
+		boolean[] visited = new boolean[graph.size()];
 	}
 
 	/// 예제 그래프 생성
@@ -40,11 +40,13 @@ public class DFSPractice {
 		return graph;
 	}
 
-	/// DFS 실행 흐름을 단계별로 출력
-	/// - 재귀 깊이 표시
-	/// - 백트래킹 시점
-	/// - 방문 순서
-	static void traceDFS(List<List<Integer>> graph, int start, boolean[] visited) {
-		// TODO: 구현
-	}
+	/// 기본 구현
+
+	/// 거리 계산
+
+	/// 최단 경로 계산
+
+	/// 최단 경로 추적
+
+	/// 모든 그래프 탐색
 }

@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.search.graph.traversal;
+package daniel.algorithmdeepdive.pattern.search.graph.traversal.bfs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,8 +6,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
-import daniel.algorithmdeepdive.pattern.search.graph.traversal.practice.BFSPractice;
 
 /// # BFS(Breadth-First Search) - 너비 우선 탐색
 /// ## 언제 쓰는가?
@@ -21,66 +19,43 @@ import daniel.algorithmdeepdive.pattern.search.graph.traversal.practice.BFSPract
 /// ## 장점
 /// - 최단 거리 보장 (가중치 없을 때)
 /// - 레벨별 처리 가능
-///
-/// ## 실험
-/// @see BFSPractice
 public class BFS {
-	List<List<Integer>> graph;
-	private boolean[] visited;
-	private int vertices;
-
-	public BFS(int vertices) {
-		this.vertices = vertices;
-		this.visited = new boolean[vertices];
-
-		this.graph = new ArrayList<>();
-		for (int i = 0; i < vertices; i++) {
-			graph.add(new ArrayList<>());
-		}
-	}
-
-	// 무방향
-	public void addEdge(int from, int to) {
-		graph.get(from).add(to);
-		graph.get(to).add(from);
-	}
 
 	/// 기본 구현
-	public void bfs(int start) {
+	/// - Queue를 사용한 레벨별 탐색
+	public static void bfs(List<List<Integer>> graph, int start) {
+		int vertices = graph.size();
+		boolean[] visited = new boolean[vertices];
 		Arrays.fill(visited, false);
+
 		System.out.println("\n=== BFS (시작: " + start + ") ===");
 
-		// 1. 방문할 정점들을 담아둘 큐 생성
 		Queue<Integer> queue = new LinkedList<>();
-
-		// 2. 시작 정점을 큐에 넣고 즉시 방문 처리 (BFS 핵심)
 		queue.offer(start);
 		visited[start] = true;
 
-		// 3. 큐에 정점이 없을 때까지 반복
 		while (!queue.isEmpty()) {
-			// 3-1. 가장 먼저 넣은 정점을 꺼냄 (FIFO)
 			Integer v = queue.poll();
 			System.out.print(v + " ");
 
-			// 3-2. 현재 정점의 인접 정점 리스트 가져옴
-			List<Integer> neighbors = graph.get(v);
-			// 3-3. 인접 정점들을 순회하며 처리
-			for (Integer neighbor : neighbors) {
-				// 3-4. 아직 방문하지 않은 인접 정점만 큐에 넣음
+			for (Integer neighbor : graph.get(v)) {
 				if (!visited[neighbor]) {
 					queue.offer(neighbor);
-					// 3-5. 큐에 넣는 즉시 방문 처리
 					visited[neighbor] = true;
 				}
 			}
 		}
+		System.out.println();
 	}
 
 	/// 거리 계산
-	public void bfsWithLevel(int start) {
-		System.out.println("\n=== BFS 거리 계산 (시작: " + start + ") ===");
+	/// - 레벨별로 출력하며 거리 계산
+	public static void bfsWithLevel(List<List<Integer>> graph, int start) {
+		int vertices = graph.size();
+		boolean[] visited = new boolean[vertices];
 		Arrays.fill(visited, false);
+
+		System.out.println("\n=== BFS 거리 계산 (시작: " + start + ") ===");
 
 		Queue<Integer> queue = new LinkedList<>();
 		queue.offer(start);
@@ -108,10 +83,12 @@ public class BFS {
 	}
 
 	/// 최단 거리 계산
-	///
-	/// @param start 기준 정점
-	/// @return 최단 거리 정보를 담고 있는 배열 반환
-	public int[] shortestDistances(int start) {
+	/// - 각 정점까지의 최단 거리 배열 반환
+	/// - @param graph 인접 리스트 그래프
+	/// - @param start 기준 정점
+	/// - @return 최단 거리 정보를 담고 있는 배열 반환
+	public static int[] shortestDistances(List<List<Integer>> graph, int start) {
+		int vertices = graph.size();
 		int[] distances = new int[vertices];
 		Arrays.fill(distances, -1);
 
@@ -133,9 +110,13 @@ public class BFS {
 	}
 
 	/// 최단 경로 추적
-	public List<Integer> shortestPath(int start, int target) {
+	/// - start에서 target까지의 최단 경로 반환
+	public static List<Integer> shortestPath(List<List<Integer>> graph, int start, int target) {
+		int vertices = graph.size();
 		int[] parent = new int[vertices];
 		Arrays.fill(parent, -1);
+		boolean[] visited = new boolean[vertices];
+		Arrays.fill(visited, false);
 
 		Queue<Integer> queue = new LinkedList<>();
 		queue.offer(start);
@@ -148,14 +129,15 @@ public class BFS {
 				break;
 
 			for (int neighbor : graph.get(v)) {
-				if (parent[neighbor] == -1) {
+				if (!visited[neighbor]) {
 					parent[neighbor] = v;
+					visited[neighbor] = true;
 					queue.offer(neighbor);
 				}
 			}
 		}
 
-		if (parent[target] == -1) {
+		if (parent[target] == -1 && start != target) {
 			return new ArrayList<>();
 		}
 
@@ -169,21 +151,25 @@ public class BFS {
 	}
 
 	/// 모든 그래프 탐색
-	public void bfsAll() {
-		System.out.println("\n=== 모든 그래프 BFS ===");
+	/// - 연결 컴포넌트별로 BFS 수행
+	public static void bfsAll(List<List<Integer>> graph) {
+		int vertices = graph.size();
+		boolean[] visited = new boolean[vertices];
 		Arrays.fill(visited, false);
+
+		System.out.println("\n=== 모든 그래프 BFS ===");
 		int componentCount = 0;
 
 		for (int i = 0; i < vertices; i++) {
 			if (!visited[i]) {
 				System.out.print("그래프 " + (++componentCount) + ": ");
-				bfsComponent(i);
+				bfsComponent(graph, i, visited);
 				System.out.println();
 			}
 		}
 	}
 
-	private void bfsComponent(int start) {
+	private static void bfsComponent(List<List<Integer>> graph, int start, boolean[] visited) {
 		Queue<Integer> queue = new LinkedList<>();
 		queue.offer(start);
 		visited[start] = true;
