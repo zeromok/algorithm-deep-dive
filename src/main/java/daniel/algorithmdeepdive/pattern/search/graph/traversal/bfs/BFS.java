@@ -84,9 +84,9 @@ public class BFS {
 
 	/// 최단 거리 계산
 	/// - 각 정점까지의 최단 거리 배열 반환
-	/// - @param graph 인접 리스트 그래프
-	/// - @param start 기준 정점
-	/// - @return 최단 거리 정보를 담고 있는 배열 반환
+	/// @param graph 인접 리스트 그래프
+	/// @param start 기준 정점
+	/// @return 최단 거리 정보를 담고 있는 배열 반환
 	public static int[] shortestDistances(List<List<Integer>> graph, int start) {
 		int vertices = graph.size();
 		int[] distances = new int[vertices];

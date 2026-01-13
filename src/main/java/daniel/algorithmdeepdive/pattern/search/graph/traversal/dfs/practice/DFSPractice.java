@@ -39,14 +39,4 @@ public class DFSPractice {
 
 		return graph;
 	}
-
-	/// 기본 구현
-
-	/// 거리 계산
-
-	/// 최단 경로 계산
-
-	/// 최단 경로 추적
-
-	/// 모든 그래프 탐색
 }
