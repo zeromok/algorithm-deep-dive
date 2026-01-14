@@ -1,7 +1,12 @@
 package daniel.algorithmdeepdive.pattern.search.graph.traversal.dfs.practice;
 
+import static daniel.algorithmdeepdive.pattern.search.graph.traversal.GraphTestUtils.*;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
+
+import daniel.algorithmdeepdive.pattern.search.graph.traversal.GraphTestUtils;
 
 /// ## DFS 실행 흐름 관찰
 /// ### 목표
@@ -11,32 +16,49 @@ import java.util.List;
 public class DFSPractice {
 
 	public static void main(String[] args) {
-		List<List<Integer>> graph = createGraph();
-		boolean[] visited = new boolean[graph.size()];
+		// 인접 리스트 그래프
+		List<List<Integer>> listGraph = createBasicGraph();
+
+		// 인접 행렬 그래프
+		int[][] matrixGraph = createBasicGraphMatrix();
+
+		// 다중 컴포넌트 그래프 (인접 리스트)
+		List<List<Integer>> multipleListGraph = createMultipleComponentsGraph();
+
+		// 다중 컴포넌트 그래프 (인접 행렬)
+		int[][] multipleMatrixGraph = createMultipleComponentsGraphMatrix();
 	}
 
-	/// 예제 그래프 생성
-	///     0
-	///   /   \
-	///  1     2
-	///   \   /
-	///     3
-	static List<List<Integer>> createGraph() {
-		int vertices = 4;
-		List<List<Integer>> graph = new ArrayList<>();
-		for (int i = 0; i < vertices; i++) {
-			graph.add(new ArrayList<>());
-		}
 
-		graph.get(0).add(1);
-		graph.get(0).add(2);
-		graph.get(1).add(0);
-		graph.get(1).add(3);
-		graph.get(2).add(0);
-		graph.get(2).add(3);
-		graph.get(3).add(1);
-		graph.get(3).add(2);
 
-		return graph;
+	/// 스택
+	public static void dfsWithStack(List<List<Integer>> graph, int start) {
+		;;
+	}
+
+	/// 재귀
+	public static void dfsRecursion(List<List<Integer>> graph, int start) {
+		;;
+	}
+
+	private static void recursionHelper(List<List<Integer>> graph, Integer start, boolean[] visited) {
+		;;
+	}
+
+	/// 경로 추적
+	public static List<Integer> findPath(List<List<Integer>> graph, int start, int target) {
+		;;
+		return null;
+	}
+
+	private static boolean pathHelper(List<List<Integer>> graph, int start, int target, boolean[] visited,
+		List<Integer> path) {
+		;;
+		return false;
+	}
+
+	/// 그래프 탐색
+	public static void countComponents(List<List<Integer>> graph) {
+		;;
 	}
 }

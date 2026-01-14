@@ -26,11 +26,8 @@ public class BFS {
 	public static void bfs(List<List<Integer>> graph, int start) {
 		int vertices = graph.size();
 		boolean[] visited = new boolean[vertices];
-		Arrays.fill(visited, false);
-
-		System.out.println("\n=== BFS (시작: " + start + ") ===");
-
 		Queue<Integer> queue = new LinkedList<>();
+
 		queue.offer(start);
 		visited[start] = true;
 
@@ -45,26 +42,22 @@ public class BFS {
 				}
 			}
 		}
-		System.out.println();
 	}
 
-	/// 거리 계산
+	/// 레벨별 처리 (레벨 사이즈 기반)
 	/// - 레벨별로 출력하며 거리 계산
 	public static void bfsWithLevel(List<List<Integer>> graph, int start) {
 		int vertices = graph.size();
 		boolean[] visited = new boolean[vertices];
 		Arrays.fill(visited, false);
-
-		System.out.println("\n=== BFS 거리 계산 (시작: " + start + ") ===");
-
 		Queue<Integer> queue = new LinkedList<>();
+
 		queue.offer(start);
 		visited[start] = true;
-
 		int level = 0;
+
 		while (!queue.isEmpty()) {
-			int size = queue.size();
-			System.out.print("Level: " + level + ": ");
+			int size = queue.size(); // 현재 레벨 크기
 
 			for (int i = 0; i < size; i++) {
 				int v = queue.poll();
@@ -77,7 +70,7 @@ public class BFS {
 					}
 				}
 			}
-			System.out.println();
+			System.out.println("(Level " + level + ")");
 			level++;
 		}
 	}
@@ -116,9 +109,8 @@ public class BFS {
 		int[] parent = new int[vertices];
 		Arrays.fill(parent, -1);
 		boolean[] visited = new boolean[vertices];
-		Arrays.fill(visited, false);
-
 		Queue<Integer> queue = new LinkedList<>();
+
 		queue.offer(start);
 		visited[start] = true;
 
@@ -137,6 +129,7 @@ public class BFS {
 			}
 		}
 
+		// 경로 복원
 		if (parent[target] == -1 && start != target) {
 			return new ArrayList<>();
 		}
@@ -152,21 +145,18 @@ public class BFS {
 
 	/// 모든 그래프 탐색
 	/// - 연결 컴포넌트별로 BFS 수행
-	public static void bfsAll(List<List<Integer>> graph) {
+	public static int countComponents(List<List<Integer>> graph) {
 		int vertices = graph.size();
 		boolean[] visited = new boolean[vertices];
-		Arrays.fill(visited, false);
-
-		System.out.println("\n=== 모든 그래프 BFS ===");
-		int componentCount = 0;
+		int count = 0;
 
 		for (int i = 0; i < vertices; i++) {
 			if (!visited[i]) {
-				System.out.print("그래프 " + (++componentCount) + ": ");
 				bfsComponent(graph, i, visited);
-				System.out.println();
+				count++;
 			}
 		}
+		return count;
 	}
 
 	private static void bfsComponent(List<List<Integer>> graph, int start, boolean[] visited) {

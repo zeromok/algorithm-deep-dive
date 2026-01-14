@@ -25,11 +25,8 @@ public class DFS {
 	public static void dfsRecursive(List<List<Integer>> graph, int start) {
 		int vertices = graph.size();
 		boolean[] visited = new boolean[vertices];
-		Arrays.fill(visited, false);
 
-		System.out.println("\n=== DFS 재귀 (시작: " + start + ") ===");
 		dfsRecursiveHelper(graph, start, visited);
-		System.out.println();
 	}
 
 	private static void dfsRecursiveHelper(List<List<Integer>> graph, int v, boolean[] visited) {
@@ -50,11 +47,8 @@ public class DFS {
 	public static void dfsIterative(List<List<Integer>> graph, int start) {
 		int vertices = graph.size();
 		boolean[] visited = new boolean[vertices];
-		Arrays.fill(visited, false);
-
-		System.out.println("\n=== DFS 스택 (시작: " + start + ") ===");
-
 		Stack<Integer> stack = new Stack<>();
+
 		stack.push(start);
 
 		while (!stack.isEmpty()) {
@@ -75,29 +69,26 @@ public class DFS {
 				}
 			}
 		}
-		System.out.println();
 	}
 
 	/// 모든 그래프 탐색
 	/// - 연결 컴포넌트별로 DFS 수행
-	public static void dfsAll(List<List<Integer>> graph) {
+	public static int countComponents(List<List<Integer>> graph) {
 		int vertices = graph.size();
 		boolean[] visited = new boolean[vertices];
-		Arrays.fill(visited, false);
 
-		System.out.println("\n=== 모든 그래프 DFS ===");
-		int componentCount = 0;
+		int count = 0;
 
 		for (int i = 0; i < vertices; i++) {
 			if (!visited[i]) {
-				System.out.print("그래프 " + (++componentCount) + ": ");
 				dfsRecursiveHelper(graph, i, visited);
-				System.out.println();
+				count++;
 			}
 		}
+		return count;
 	}
 
-	/// 경로 추적
+	/// 경로 추적 (백트레킹)
 	/// - start에서 target까지의 경로 반환 (최단 경로 보장 안됨)
 	public static List<Integer> findPath(List<List<Integer>> graph, int start, int target) {
 		int vertices = graph.size();
