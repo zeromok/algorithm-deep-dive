@@ -14,10 +14,10 @@ package daniel.algorithmdeepdive.pattern.greedy;
 ///
 /// ### 시간 복잡도: O(N/large)
 /// ### 공간 복잡도: O(1)
-public class LargestDenominationFirst {
+public class Denomination {
 
 	/// # 큰 단위 우선 그리디로 최소 개수 계산
-	public static int solve(int target, int large, int small) {
+	public static int LargestDenominationFirst(int target, int large, int small) {
 		// 최적화: 큰 단위로 나누어 떨어지면 즉시 반환
 		if (target % large == 0) {
 			return target / large;
