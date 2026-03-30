@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.mergesort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.enhanced.mergesort;
 
 import java.util.Comparator;
 import java.util.concurrent.ForkJoinPool;

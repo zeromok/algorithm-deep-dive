@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.heapsort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.enhanced.heapsort;
 
 import java.util.Arrays;
 

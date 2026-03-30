@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.shellsort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.shellsort;
 
 import java.util.Arrays;
 

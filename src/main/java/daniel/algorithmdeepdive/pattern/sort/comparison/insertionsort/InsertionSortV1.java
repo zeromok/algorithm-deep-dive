@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.insertionsort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.insertionsort;
 
 /// # 삽입정렬 V1 - 이진 삽입 정렬 (Binary Insertion Sort)
 ///

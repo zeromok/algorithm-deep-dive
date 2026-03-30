@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.selectionsort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.selectionsort;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.insertionsort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.insertionsort;
 
 /// # 삽입정렬 V0 - 기본 구현
 /// ## 언제 쓰는가?

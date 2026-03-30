@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.quicksort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.enhanced.quicksort;
 
 import java.util.Arrays;
 

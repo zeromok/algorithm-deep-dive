@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.insertionsort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.insertionsort;
 
 import static java.util.Objects.*;
 

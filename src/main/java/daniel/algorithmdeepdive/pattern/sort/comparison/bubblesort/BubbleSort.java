@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.bubblesort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.bubblesort;
 
 import java.util.Arrays;
 

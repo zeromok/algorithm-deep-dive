@@ -1,4 +1,4 @@
-package daniel.algorithmdeepdive.pattern.sort.mergesort;
+package daniel.algorithmdeepdive.pattern.sort.comparison.enhanced.mergesort;
 
 
 /// # 병합 정렬 V0 - 기본 구현
